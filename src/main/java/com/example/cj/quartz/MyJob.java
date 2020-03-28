@@ -1,14 +1,23 @@
 package com.example.cj.quartz;
 
-import org.quartz.Job;
-import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
+import org.quartz.*;
 
 import java.util.Date;
 
 public class MyJob implements Job {
+
+    public MyJob() {
+        System.out.println("new job instance");
+    }
+
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        System.out.println("hello, I am first job! " + new Date());
+//        JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
+//        JobDataMap jobDataMap1 = context.getTrigger().getJobDataMap();
+        JobDataMap mergedJobDataMap = context.getMergedJobDataMap();
+        String jobSays = mergedJobDataMap.getString("jobSays");
+        float myFloatValue = mergedJobDataMap.getFloat("myFloatValue");
+        JobKey key = context.getJobDetail().getKey();
+        System.out.println("instance: " + key + " says: " + jobSays + " and value is " + myFloatValue + ". " + new Date());
     }
 }
