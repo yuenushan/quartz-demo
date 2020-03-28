@@ -5,7 +5,7 @@ import org.quartz.*;
 import java.util.Date;
 
 /*
-告诉Quartz不要同时执行给定Job定义（指给定Job类）的多个实例。没有执行的实例，会在上个实例结束后马上执行
+告诉Quartz不要同时执行给定Job定义（指给定Job类）的多个实例
  */
 @DisallowConcurrentExecution
 /*

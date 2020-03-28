@@ -15,10 +15,16 @@ quartz的学习
     * context.getJobDetail().getJobDataMap();
     * context.getTrigger().getJobDataMap();
     * context.getMergedJobDataMap(); 上述两个JobDataMap的合并，后者的值会覆盖前者的值。
+2. ScheduleBuilder
+3. Calendar    
     
 ### 常用注解
 1. @DisallowConcurrentExecution
 2. @PersistJobDataAfterExecution
+
+### 触发器重要属性
+1. Priority。- 当同一时刻，需要触发执行的job，多于工作线程时，优先级的优先执行。
+2. Misfire Instructions
 
 ### 设计模式
 显然JobDetail和Trigger和构建都是使用了建造者模式，可以看下源码看看quartz的建造者模式是怎么写的。
