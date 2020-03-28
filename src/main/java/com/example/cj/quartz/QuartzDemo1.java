@@ -6,6 +6,9 @@ import org.quartz.impl.StdSchedulerFactory;
 public class QuartzDemo1 {
     public static void main(String[] args) throws SchedulerException, InterruptedException {
         Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+        System.out.println(scheduler.getSchedulerName());
+        System.out.println(scheduler.getMetaData().getJobStoreClass());
+        System.out.println(scheduler.getMetaData().getThreadPoolSize());
         JobDetail jobDetail = JobBuilder.newJob(MyJob.class)
                 .withIdentity("job1", "group1")
                 .build();
