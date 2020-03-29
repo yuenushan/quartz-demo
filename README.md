@@ -16,7 +16,12 @@ quartz的学习
     * context.getTrigger().getJobDataMap();
     * context.getMergedJobDataMap(); 上述两个JobDataMap的合并，后者的值会覆盖前者的值。
 2. ScheduleBuilder
-3. Calendar    
+3. Calendar
+4. TriggerListener
+5. JobListener - scheduler.getListenerManager().addJobListener(myJobListener, KeyMatcher.jobKeyEquals(new JobKey("myJobName", "myJobGroup")));
+6. SchedulerListener    
+7. JobStore - RAMJobStore, JDBCJobStore, TerracottaJobStore。后两种支持集群
+8. SchedulerPlugin
     
 ### 常用注解
 1. @DisallowConcurrentExecution
